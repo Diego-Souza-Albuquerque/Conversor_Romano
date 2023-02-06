@@ -2,10 +2,12 @@
 x = input("Digite um número para converter: ")
 x = float(x)
 x = int(x)
-# Número até 3999
+
+# Números até 3999
 while x < 4000:
     x = str(x)
     tipo = len(x)
+    print(tipo)
 
     def numerico(x):
         unidade = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
@@ -37,40 +39,66 @@ while x < 4000:
         print("Valor convertido:", num)
 
     if tipo == 2:
-        y = x[0] + "0"
-        z = x[1]
-        dezena(y)
-        dez = dezena(y)
-        numerico(z)
-        num = numerico(z)
-        print("Valor convertido:", dez + num)
+        if x[1] == "0":
+            dezena(x)
+            dez = dezena(x)
+            print("Valor convertido:", dez)
+        else:
+            y = x[0] + "0"
+            z = x[1]
+            dezena(y)
+            dez = dezena(y)
+            numerico(z)
+            num = numerico(z)
+            print("Valor convertido:", dez + num)
 
     if tipo == 3:
-        k = x[0] + "00"
-        y = x[1] + "0"
-        z = x[2]
-        dezena(y)
-        dez = dezena(y)
-        numerico(z)
-        num = numerico(z)
-        centena(k)
-        cent = centena(k)
-        print("Valor convertido:", cent + dez + num)
+        if x[2] == "0":
+            centena(x)
+            cent = centena(x)
+            print("Valor convertido:", cent)
+
+        else:
+            k = x[0] + "00"
+            y = x[1] + "0"
+            z = x[2]
+            dezena(y)
+            dez = dezena(y)
+            numerico(z)
+            num = numerico(z)
+            centena(k)
+            cent = centena(k)
+            print("Valor convertido:", cent + dez + num)
 
     if tipo == 4:
-        k = x[0] + "000"
-        y = x[1] + "00"
-        z = x[2] + "0"
-        w = x[3]
-        dezena(z)
-        dez = dezena(z)
-        numerico(w)
-        num = numerico(w)
-        centena(y)
-        cent = centena(y)
-        milhar(k)
-        mil = milhar(k)
-        print("Valor convertido:", mil + cent + dez + num)
+        if x[3] == "0" and x[2] == "0" and x[3] == "0":
+            milhar(x)
+            mil = milhar(x)
+            print("Valor convertido:", mil)
+
+        elif x[3] == "0" and x[2] == "0":
+            k = x[0] + "000"
+            y = x[0] + "00"
+            milhar(k)
+            mil = milhar(k)
+            centena(y)
+            cent = centena(y)
+            print("Valor convertido:", mil, cent)
+
+        else:
+            k = x[0] + "000"
+            y = x[1] + "00"
+            z = x[2] + "0"
+            w = x[3]
+            dezena(z)
+            dez = dezena(z)
+            numerico(w)
+            num = numerico(w)
+            centena(y)
+            cent = centena(y)
+            milhar(k)
+            mil = milhar(k)
+            print("Valor convertido:", mil + cent + dez + num)
 
     x = input("\nDigite um novo número para converter: ")
     x = float(x)
