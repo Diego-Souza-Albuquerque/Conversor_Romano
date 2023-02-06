@@ -7,7 +7,6 @@ x = int(x)
 while x < 4000:
     x = str(x)
     tipo = len(x)
-    print(tipo)
 
     def numerico(x):
         unidade = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
